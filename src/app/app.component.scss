@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
-$font-family: 'PT Sans', sans-serif;;
+$font-family: 'PT Sans', sans-serif;
 $font-size: 16px;
 
 @mixin center-position ($direction, $content)
@@ -31,7 +31,6 @@ body
 
   background-color: #fff;
 
-
 }
 
 .container
@@ -41,13 +40,6 @@ body
 
   @include center-position(column, center);
 
-}
-
-.wrapper-block
-{
-  width: 100%;
-
-  @include center-position(column, center);
 }
 
 .header
@@ -68,7 +60,8 @@ body
 
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
-    border-radius: 50px;  background: black;
+    border-radius: 50px;  
+    background: black;
   }
 
   &__title
@@ -165,7 +158,6 @@ body
   &__title
   {
     font-weight: 700;
-
     flex: 1;
   }
 }

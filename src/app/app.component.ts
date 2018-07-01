@@ -1,26 +1,32 @@
-import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Component, OnInit } from '@angular/core';
 import { Item, Items } from './item.model';
+import { AppState } from './redux/app.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-  public items: Item[] = [
-      new Item(1, 'Cats', 'assets/cats.jpg' ),
-      new Item(2, 'Flower', 'assets/flower.jpg' ),
-      new Item(3, 'Dolphins', 'assets/dolphins.jpg' ),
-      new Item(4, 'Mountain', 'assets/mountain.jpeg' ),
-      new Item(5, 'Tower', 'assets/tower.jpg' )
-  ];
-  
-  deleteItem(id: number): void {
+export class AppComponent implements OnInit {
+  public items: Item[] = [];
+  public itemState: Observable<AppState>;
+
+  constructor(private store: Store<Items>) {}
+  /* deleteItem(id: number): void {
     this.items = this.items.filter(item => item.id !== id);
+  } */
+
+  ngOnInit() {
+    /* this.store.select('itemPage').subscribe(({items}) => {
+      this.items = items;
+    }); */
+    this.itemState = this.store.select('itemPage');
   }
 
-  onAdd(item: Item) {
+  /* onAdd(item: Item) {
     this.items.push(item);
-  }
+  } */
 }
