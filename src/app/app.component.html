@@ -6,7 +6,7 @@
   <div class="container">
     <div class="app">
       <button class="button button_dynamic" (click)="showDialog = !showDialog">New</button>
-      <app-dialog [(visible)]="showDialog" (addItem)="onAdd($event)">
+      <app-dialog [(visible)]="showDialog">
       </app-dialog>
     </div>
   </div>

@@ -25,8 +25,4 @@ export class AppComponent implements OnInit {
     }); */
     this.itemState = this.store.select('itemPage');
   }
-
-  /* onAdd(item: Item) {
-    this.items.push(item);
-  } */
 }

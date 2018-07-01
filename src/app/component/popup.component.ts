@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
+import { AddItem } from './../redux/items.action';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { AppComponent} from '../app.component';
+import { Store } from '@ngrx/store';
+import { AppState } from './../redux/app.state';
 import { Item } from '../item.model';
 
 @Component({
@@ -19,7 +21,8 @@ import { Item } from '../item.model';
     ])
   ]
 })
-export class PopupComponent implements OnInit {
+
+export class PopupComponent {
   @Input() closable = true;
   @Input() visible: boolean;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -27,11 +30,7 @@ export class PopupComponent implements OnInit {
   title: string = '';
   url: string = '';
 
-  @Output() addItem = new EventEmitter<Item>();
-
-  constructor() { }
-
-  ngOnInit() { }
+  constructor(private store: Store<AppState>) { }
 
   onClose() {
     this.visible = false;
@@ -42,8 +41,11 @@ export class PopupComponent implements OnInit {
     if (this.title === ' ' || this.url === ' ') {
       return;
     }
-    const item = new Item(Number(String(Math.random().toString(8).slice(2))), this.title, this.url);
-    this.addItem.emit(item);
+
+  const item = new Item(Number(String(Math.random().toString(8).slice(2))), this.title, this.url);
+
+  this.store.dispatch(new AddItem(item));
+
     this.title = '';
     this.url = '';
   }
