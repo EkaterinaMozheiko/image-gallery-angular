@@ -1,0 +1,14 @@
+<div class="popup" *ngIf="visible">
+  <div class="popup_inner">
+  <ng-content></ng-content>
+    <h2>New Image</h2><br />
+    <input class="input input_title" placeholder="Title" [(ngModel)]="title"><br>
+    <input class="input input_url" placeholder="URL" [(ngModel)]="url"><br>
+    <div class="button-wrapper">
+      <button class="button" type="button" value="Close" *ngIf="closable" (click)="onClose()">Close</button>
+      <button class="button" type="button" value="Add" (click)="onAdd()">Add</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>
+
