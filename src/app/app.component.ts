@@ -1,8 +1,9 @@
 import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
-import { Item, Items } from './item.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { Items, Item } from './item.model';
 import { AppState } from './redux/app.state';
 import { Observable } from 'rxjs';
+import { DeleteItem } from './../app/redux/items.action';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,11 @@ import { Observable } from 'rxjs';
 })
 
 export class AppComponent implements OnInit {
-  public items: Item[] = [];
-  public itemState: Observable<AppState>;
+  // @Input() item: Item;
 
-  constructor(private store: Store<Items>) {}
-  /* deleteItem(id: number): void {
-    this.items = this.items.filter(item => item.id !== id);
-  } */
+  public itemState: Observable<Items>;
+
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
     /* this.store.select('itemPage').subscribe(({items}) => {
@@ -25,4 +24,8 @@ export class AppComponent implements OnInit {
     }); */
     this.itemState = this.store.select('itemPage');
   }
+
+  /*onDelete() {
+    this.store.dispatch(new DeleteItem(this.item));
+  }*/
 }

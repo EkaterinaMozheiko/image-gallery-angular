@@ -1,5 +1,5 @@
 import { Item } from './../item.model';
-import { AddItem, ITEM_ACTION } from './items.action';
+import { ITEM_ACTION, ItemsAction } from './items.action';
 
 const initialState = {
   items: [
@@ -11,13 +11,18 @@ const initialState = {
   ]
 };
 
-export function itemsReducer(state = initialState, action: AddItem) {
+export function itemsReducer(state = initialState, action: ItemsAction) {
   switch (action.type) {
     case ITEM_ACTION.ADD_ITEM:
       return {
         ...state,
         items: [...state.items, action.payload]
       };
+    case ITEM_ACTION.DELETE_ITEM:
+      return {
+        ...state,
+        items: [...state.items.filter(item => item.id !== action.payload.id)]
+    };
     default:
      return state;
   }

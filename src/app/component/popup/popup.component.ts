@@ -1,14 +1,14 @@
-import { AddItem } from './../redux/items.action';
+import { Item } from './../../item.model';
+import { AppState } from './../../redux/app.state';
+import { AddItem } from './../../redux/items.action';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Store } from '@ngrx/store';
-import { AppState } from './../redux/app.state';
-import { Item } from '../item.model';
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './popup.component.html',
-  styleUrls: ['../app.component.scss'],
+  styleUrls: ['./popup.component.scss', '../../app.component.scss'],
   animations: [
     trigger('dialog', [
       transition('void => *', [

@@ -70,43 +70,6 @@ body
   }
 }
 
-.popup
-{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-  margin: auto;
-
-  background-color: rgba(0,0,0, .5);
-}
-.popup_inner
-{
-  position: absolute;
-  top: 25%;
-  right: 25%;
-  bottom: 15%;
-  left: 25%;
-
-  min-width: 30%;
-  min-height: 40%;
-
-  margin: auto;
-  padding-top: 2%;
-
-  text-align: center;
-
-  border: 1px solid darkgray;
-  border-radius: 5px;
-  background: white;
-
-  @include center-position(column, center);
-}
-
 .button
 {
   font-weight: 700;
@@ -143,47 +106,6 @@ body
 {
   width: 70%;
   margin-bottom: 5%;
-}
-
-.image-block
-{
-  width: 100%;
-  height: 5%;
-  padding: 0 10px;
-
-  border: 1px solid darkgray;
-
-  @include center-position(row, center);
-
-  &__title
-  {
-    font-weight: 700;
-    flex: 1;
-  }
-}
-
-.image
-{
-  max-width: 100%;
-}
-
-.button-wrapper
-{
-  width: 80%;
-
-  flex-wrap: wrap;
-
-  @include center-position(row, space-between);
-}
-
-.input
-{
-  width: 80%;
-  height: 15%;
-
-  margin-bottom: 15px;
-  padding: 0 10px;
-
 }
 
 @media screen and (max-width : 568px) {

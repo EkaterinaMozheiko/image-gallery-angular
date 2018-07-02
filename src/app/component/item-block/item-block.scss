@@ -1,0 +1,82 @@
+$font-size: 16px;
+
+@mixin center-position ($direction, $content)
+{
+  display: flex;
+  align-items: center;
+  flex-direction: $direction;
+  justify-content: $content;
+}
+
+.container
+{
+  width: 100%;
+  margin-bottom: 2%;
+
+  @include center-position(column, center);
+
+
+
+}
+
+.button
+{
+  font-weight: 700;
+
+  min-width: 100px;
+  min-height: 40px;
+
+  padding: 10px;
+
+  cursor: pointer;
+  text-transform: uppercase;
+
+  color: #2efe2e;
+  border: 1px solid #2efe2e;
+  border-radius: 10px;
+  outline: none;
+  background-color: white;
+
+  &:hover
+  {
+    opacity: .8;
+  }
+
+  &_red
+  {
+    font-size: $font-size / 1.5;
+
+    color: red;
+    border: none;
+  }
+}
+
+.block
+{
+  width: 70%;
+  margin-bottom: 5%;
+}
+
+.image-block
+{
+  width: 100%;
+  height: 5%;
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid darkgray;
+
+  @include center-position(row, center);
+
+  &__title
+  {
+    font-weight: 700;
+    flex: 1;
+  }
+}
+
+.image
+{
+  max-width: 100%;
+}

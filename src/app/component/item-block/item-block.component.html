@@ -1,0 +1,8 @@
+<div class="container" >
+    <div class="block" >
+      <div class="image-block" >
+            <div class="image-block__title">{{ item.title }}</div>
+            <button class="button button_red" type="button" (click)="onDelete()">Delete</button>
+      </div>
+      <img class="image" [src]="item.url" />
+  </div>
